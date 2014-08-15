@@ -136,7 +136,7 @@
     <Content Include="Content\css\yue.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\favicon.ico">
+    <Content Include="favicon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\images\2014_01_18_14_02_54-2.jpg">

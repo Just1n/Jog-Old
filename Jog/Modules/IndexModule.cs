@@ -46,7 +46,6 @@ namespace Jog.Modules
             if (id == null) throw new ArgumentNullException("id");
             var model =
                 BlogPosts.FirstOrDefault(p => p.Status == PostStatus.Publish && p.Type == PostType.Post && p.Id.ToLower() == id.ToLower());
-            @ViewBag.CurrentUrl = Request.Url.ToString();
             return View["post", model];
         }
 
