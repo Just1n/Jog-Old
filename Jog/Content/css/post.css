@@ -1,0 +1,75 @@
+.site-nav {
+	line-height: normal;
+	margin-bottom: 40px;
+}
+.site-nav ul { margin: 0; }
+.site-nav li a { color: rgb(136,136,136); }
+.site-nav li a:hover { color: rgb(45,166,222); }
+.site-nav li + li { border-left: 1px solid rgb(239,239,239); }
+
+body {
+	font-size: 24px;
+	line-height: 36px;
+}
+
+h1 {
+	font-size: 200%;
+	margin: 80px 0;
+	text-align: center;
+}
+h2, h3, p { margin-bottom: 20px; }
+h2 {
+	font-size: 150%;
+	margin: 80px 0 40px 0;
+}
+h3 {
+	font-size: 120%;
+	margin: 80px 0 40px 0;
+}
+
+.post-content p:first-child:first-letter, h2 + p:first-letter, h3 + p:first-letter {
+	font-size: 150%;
+}
+
+img {
+	display: block;
+	margin: 0 auto;
+	max-width: 100%;
+}
+
+aside.night-toggle {
+	background-color: rgb(38,38,38);
+	border-radius: 12px;
+	cursor: pointer;
+	height: 24px;
+	position: absolute;
+	right: 10px;
+	top: 12px;
+	width: 24px;
+}
+
+@media screen and (max-width: 720px) {
+	body {
+		font-size: 18px;
+		line-height: 24px;
+	}
+	h2 { margin: 40px 0 20px 0; }
+	h3 { margin: 40px 0 20px 0; }
+}
+
+@media screen and (max-width: 480px) {
+	body {
+		font-size: 14px;
+		line-height: 18px;
+	}
+}
+
+body.night aside.night-toggle { background-color: rgb(192,177,169); }
+body.night {
+	background-color: rgb(59,57,56);
+	color: rgb(192,177,169);
+}
+body.night .site-nav li + li { border-left: 1px solid rgb(83,79,76); }
+body.night .blog-post { color: rgb(192,177,169); }
+body.night .post-content pre, body.night .post-content code, body.night .post-content hr { background-color: rgb(83,79,76); }
+body.night .post-content blockquote { border-left: 2px solid rgb(83,79,76); }

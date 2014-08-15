@@ -1,0 +1,13 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<Jog.Models.BlogPost>
+@{
+    Layout = "_Layout.cshtml";
+}
+
+<article class="blog-page">
+    <header class="page-header">
+        <h2>@Model.Title</h2>
+    </header>
+    <section class="page-content">
+        @Html.Raw(Model.GetTransContent())
+    </section>
+</article>

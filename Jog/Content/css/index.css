@@ -1,0 +1,131 @@
+h1 { margin-bottom: 20px; }
+h2 {
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+h2 a {
+	font-size: 24px;
+	margin-bottom: 20px;
+	text-decoration: none;
+}
+
+.site-cover {
+	background-color: rgb(83,83,83);
+	color: rgb(255,255,255);
+	height: 100%;
+	position: fixed;
+	top: 0;
+	text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+	width: 33%;
+	z-index: 2;
+}
+
+.site-header {
+	font-size: 24px;
+	padding: 40px;
+	position: absolute;
+	text-align: center;
+}
+.site-logo {
+	background-size: contain;
+	border-radius: 16px;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+	display: inline-block;
+	height: 32px;
+	margin-right: 10px;
+	position: relative;
+	top: 8px;
+	width: 32px;
+}
+
+.site-cover figure {
+	background-image: url({{@blog.cover}});
+	background-origin: content-box;
+	background-position: center;
+	background-size: cover;
+	box-shadow: inset -2px 0 16px rgba(0,0,0,.2);
+	min-height: 100%;
+	width: 100%;
+}
+.site-cover figcaption {bottom:20px;
+	font-size: 14px;
+	position: absolute;
+	right: 20px;
+}
+.outer-wrapper { margin-left: 33%; }
+
+.site-header p:last-child { margin-bottom:0; }
+
+.blog-page {
+	color:rgb( 76,76,76);
+	font-size: 24px;
+	margin-bottom: 40px;
+}
+.page-header { margin-bottom: 10px; }
+.page-header h2,.page-content p { margin-bottom: 20px; }
+.page-content blockquote {
+	border-left: 2px solid rgb(239,239,239);
+	padding-left: 18px;
+}
+.page-content img {
+	display: block;
+	margin: 0 auto;
+	max-width: 100%;
+}
+.page-content ol, .page-content ul { margin-left: 40px; }
+.page-content pre {
+	background-color: rgb(239,239,239);
+	border-radius: 3px;
+	margin-bottom: 20px;
+	padding: 10px 6px;
+	overflow:scroll;
+}
+.page-content code {
+	background-color: rgb(239,239,239);
+	border-radius: 3px;
+	font-family: monospace;
+	padding: 0 4px;
+	white-space: pre;
+	word-break: normal;
+	word-wrap: normal
+}
+.page-content hr {
+	background-color: rgb(239,239,239);
+	border: none;
+	height: 1px;
+}
+
+article.featured h2:before {
+	background-color: rgb(255,136,0);
+	border-radius: 8px;
+	content: "";
+	display: inline-block;
+	height: 16px;
+	margin-right: 10px;
+	position: relative;
+	width: 16px;
+}
+article.featured a:hover h2:before { background-color: rgb(45,166,222); }
+
+@media all and (max-width:954px) {
+	.site-header {
+		position: relative;
+		text-align: left;
+		z-index: 2;
+	}
+	.site-cover {
+		width: 100%;
+		overflow: hidden;
+		position: relative;
+	}
+	.site-cover figure {
+		position: absolute;
+		top: 0;
+		z-index: 1;
+	}
+	.outer-wrapper {
+		margin-left: 0;
+		position: relative;
+		width: 100%;
+	}
+}

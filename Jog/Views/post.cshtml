@@ -1,0 +1,71 @@
+﻿@using System.Linq
+@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<Jog.Models.BlogPost>
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>@Model.Title</title>
+    <meta name="description" content="@ViewBag.Settings.Value.SiteDescription" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
+    <link href="//fonts.useso.com/css?family=Roboto+Condensed:300italic,300" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/default.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/post.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/yue.css" />
+</head>
+<body>
+    <aside class="night-toggle" onclick="document.body.classList.toggle('night')"></aside>
+    <div class="outer-wrapper">
+        <div class="inner-wrapper">
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    @foreach (var p in ViewBag.Pages.Value)
+                    {
+                        <li><a href="~/@p.Id">@p.Title</a></li>
+                    }
+                </ul>
+            </nav>
+            <div>
+                <article class="blog-post yue">
+                    <header class="post-header">
+                        <h1>@Model.Title</h1>
+                    </header>
+                    <section class="post-content">
+                        @Html.Raw(Model.GetTransContent())
+                    </section>
+                    <footer class="post-footer">
+                        Written by <h4>Just1n</h4> on a @Model.Date.DayOfWeek, <time datetime="{{date format='YYYY-MM-DD'}}">@Model.GetRelTime()</time>
+                        @if (Model.Tags.Any())
+                        {
+                            @:, about
+                            foreach (var t in Model.Tags)
+                            {
+                                <a href="~/tag/@t">@t</a>
+                                @: &nbsp;
+                            }
+                        }
+                    </footer>
+                </article>
+            </div>
+            <!-- 多说评论框 start -->
+            <div class="ds-thread" data-thread-key="@Model.Id" data-title="@Model.Title" data-url="@ViewBag.CurrentUrl"></div>
+            <!-- 多说评论框 end -->
+            <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+            <script type="text/javascript">
+                var duoshuoQuery = { short_name: "just1n" };
+                (function () {
+                    var ds = document.createElement('script');
+                    ds.type = 'text/javascript'; ds.async = true;
+                    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                    ds.charset = 'UTF-8';
+                    (document.getElementsByTagName('head')[0]
+                     || document.getElementsByTagName('body')[0]).appendChild(ds);
+                })();
+            </script>
+            <!-- 多说公共JS代码 end -->
+        </div>
+    </div>
+</body>
+</html>

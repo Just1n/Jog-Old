@@ -1,0 +1,49 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<Jog.Models.RecentBlogPostsViewModel>
+@{
+    Layout = "_Layout.cshtml";
+}
+
+<section>
+    @foreach (var blogPost in Model.Posts)
+    {
+        <article class="blog-post">
+            <header class="post-header">
+                <a href="@blogPost.GetLink()"><h2>@blogPost.Title</h2></a>
+            </header>
+            <section class="post-content">
+                <p>@blogPost.Excerpt&hellip;</p>
+            </section>
+            <footer class="post-footer">
+                Written on a @blogPost.Date.DayOfWeek <time datetime="{{date format='YYYY-MM-DD'}}">@blogPost.GetRelTime()</time>
+            </footer>
+        </article>
+    }
+</section>
+<footer class="blog-footer">
+    <nav class="pagination">
+        @if (Model.HasPrevPage)
+        {
+            if(ViewBag.Tag.ToString() == "")
+            { 
+                <a class="previous" href="~/page/@(Model.CurrentPage - 1)">←</a>
+            }
+            else
+            {
+                <a class="previous" href="~/tag/@ViewBag.Tag.ToString()/page/@(Model.CurrentPage - 1)">←</a>
+            }
+        }
+        <span>Page @Model.CurrentPage of @Model.Pages</span>
+        @if (Model.HasNextPage)
+        {
+            if (ViewBag.Tag.ToString() == "")
+            {
+                <a class="next" href="~/page/@(Model.CurrentPage + 1)">→</a>
+            }
+            else
+            {
+                <a class="next" href="~/tag/@ViewBag.Tag.ToString()/page/@(Model.CurrentPage + 1)">→</a>
+            }
+        }
+    </nav>
+</footer>
+
