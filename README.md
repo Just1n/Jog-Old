@@ -1,4 +1,3 @@
-README.md
 ## Jog
 这是一个用Nancy框架写的博客引擎，主要是自用。
 演示：[just1n.net](http://just1n.net)
