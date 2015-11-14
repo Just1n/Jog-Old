@@ -19,6 +19,18 @@ namespace Jog.Modules
             Get["/tag/{Tag}"] = p => IndexAction(new RecentBlogPostsBindingModel {Page = 1, Take = 10}, p.Tag);
             Get["/tag/{Tag}/page/{page:int}"] = p => IndexAction(new RecentBlogPostsBindingModel { Page = p.page, Take = 10 }, p.Tag);
             Get["/make.html"] = p => Make();
+            Get["/resume-cn"] = p => ResumeCn();
+            Get["/resume-en"] = p => ResumeEn();
+        }
+
+        private dynamic ResumeEn()
+        {
+            return View["resume-en"];
+        }
+
+        private dynamic ResumeCn()
+        {
+            return View["resume-cn"];
         }
 
         public dynamic IndexAction(RecentBlogPostsBindingModel input,string tag = "")
